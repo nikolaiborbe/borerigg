@@ -2,13 +2,12 @@ import RPi.GPIO as GPIO
 from servo_controller import ServoController
 from time import sleep
 
-GPIO.setmode(GPIO.BOARD)
-
 TRIGGER_PIN = 36
 
-GPIO.setup(TRIGGER_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
-
 def main():
+
+    GPIO.setmode(GPIO.BOARD)
+    GPIO.setup(TRIGGER_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
     while GPIO.input(TRIGGER_PIN) == GPIO.HIGH:
         sleep(0.05)
