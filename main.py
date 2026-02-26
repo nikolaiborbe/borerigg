@@ -1,6 +1,6 @@
 import RPi.GPIO as GPIO
 from servo_controller import ServoController
-import time
+from time import sleep
 
 GPIO.setmode(GPIO.BOARD)
 
@@ -11,7 +11,7 @@ GPIO.setup(TRIGGER_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 def main():
 
     while GPIO.input(TRIGGER_PIN) == GPIO.HIGH:
-        time.sleep(0.05)
+        sleep(0.05)
 
     servo = ServoController(32)
 
@@ -23,6 +23,8 @@ def main():
     servo.set_pos(20)
 
     servo.cleanup()
+
+    sleep(1)
 
 
 if __name__ == "__main__": 
