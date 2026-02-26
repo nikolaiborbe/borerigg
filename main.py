@@ -2,6 +2,7 @@
 import RPi.GPIO as GPIO
 from servo_controller import ServoController
 import time
+GPIO.setmode(GPIO.BOARD)
 
 TRIGGER_PIN = 36
 

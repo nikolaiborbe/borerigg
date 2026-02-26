@@ -16,7 +16,6 @@ class ServoController:
             min_angle: Minimum angle in degrees (default 0).
             max_angle: Maximum angle in degrees (default 180).
         """
-        GPIO.setmode(GPIO.BOARD)
 
         GPIO.setup(pin, GPIO.OUT)
         self.servo_pin = pin
