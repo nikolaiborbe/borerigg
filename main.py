@@ -14,14 +14,9 @@ while True:
     while GPIO.input(TRIGGER_PIN) == GPIO.HIGH:
         time.sleep(0.05)
 
-
     servo.set_pos(0)
     servo.set_pos(180)
     servo.set_pos(90)
     servo.set_pos(45)
     servo.set_pos(30)
     servo.set_pos(20)
-
-    # Wait for button release before allowing next trigger
-    while GPIO.input(TRIGGER_PIN) == GPIO.LOW:
-        time.sleep(0.05)
