@@ -8,11 +8,12 @@ TRIGGER_PIN = 36
 
 GPIO.setup(TRIGGER_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
+servo = ServoController(31)
+
 while True:
     while GPIO.input(TRIGGER_PIN) == GPIO.HIGH:
         time.sleep(0.05)
 
-    servo = ServoController(32)
 
     servo.set_pos(0)
     servo.set_pos(180)
@@ -20,3 +21,7 @@ while True:
     servo.set_pos(45)
     servo.set_pos(30)
     servo.set_pos(20)
+
+    # Wait for button release before allowing next trigger
+    while GPIO.input(TRIGGER_PIN) == GPIO.LOW:
+        time.sleep(0.05)
