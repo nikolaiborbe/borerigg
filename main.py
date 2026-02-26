@@ -23,6 +23,7 @@ def main():
     servo.set_pos(20)
 
     servo.cleanup()
+    GPIO.cleanup()
 
 
 if __name__ == "__main__": 
