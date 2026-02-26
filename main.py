@@ -6,6 +6,8 @@ GPIO.setmode(GPIO.BOARD)
 
 TRIGGER_PIN = 36
 
+GPIO.setup(TRIGGER_PIN, GPIO.IN, pull_up_down=GPIO.PUD_DOWN)
+
 def main():
 
     while GPIO.input(TRIGGER_PIN) == GPIO.HIGH:
