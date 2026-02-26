@@ -8,12 +8,12 @@ TRIGGER_PIN = 36
 
 GPIO.setup(TRIGGER_PIN, GPIO.IN, pull_up_down=GPIO.PUD_UP)
 
-servo = ServoController(31)
-
 def main():
 
     while GPIO.input(TRIGGER_PIN) == GPIO.HIGH:
         time.sleep(0.05)
+
+    servo = ServoController(32)
 
     servo.set_pos(0)
     servo.set_pos(180)
@@ -23,9 +23,7 @@ def main():
     servo.set_pos(20)
 
     servo.cleanup()
-    GPIO.cleanup()
 
 
 if __name__ == "__main__": 
-    while True:
-        main()
+    main()
